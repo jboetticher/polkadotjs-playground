@@ -13,6 +13,10 @@ const main = async () => {
     const { provider, api } = await selectNetwork(args.network);
 
     // Query for data
+    if(api.query.assets === undefined) {
+        console.error('Assets pallet not included');
+        process.exit();
+    }
     const assetMetadataEntries = await api.query.assets.metadata.entries();
 
     // Format Data

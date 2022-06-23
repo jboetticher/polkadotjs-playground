@@ -1,21 +1,27 @@
 import { ApiPromise, WsProvider } from '@polkadot/api';
 
 export default async function selectNetwork(network: string): Promise<{ provider: WsProvider; api: ApiPromise; }> {
-    let wsProvider: WsProvider;
-    switch (network) {
+    let wsProvider: WsProvider, providerString: string | undefined;
+    providerString = (() => {switch (network) {
         case 'moonbeam':
-            wsProvider = new WsProvider('wss://wss.api.moonbeam.network');
-            break;
+            return 'wss://wss.api.moonbeam.network';
         case 'moonriver':
-            wsProvider = new WsProvider('wss://wss.api.moonbeam.network');
-            break;
+            return 'wss://wss.api.moonriver.moonbeam.network';
         case 'moonbase':
-            wsProvider = new WsProvider('wss://wss.api.moonbase.moonbeam.network');
-            break;
+            return 'wss://wss.api.moonbase.moonbeam.network';
+        case 'polkadot':
+            return 'wss://rpc.polkadot.io';
+        case 'kusama':
+            return 'wss://kusama-rpc.polkadot.io';
+        case 'moonbaseRelay':
+            return 'wss://frag-moonbase-relay-rpc-ws.g.moonbase.moonbeam.network';
         default:
             console.error('Network not supported');
-            process.exit();
-    }
+            return undefined;
+    }})();
+
+    if(providerString === undefined) process.exit();
+    wsProvider = new WsProvider(providerString);
 
     // Construct API provider
     const api = await ApiPromise.create({ provider: wsProvider });

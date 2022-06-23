@@ -23,3 +23,19 @@ export type PolkadotAccountHuman = {
         feeFrozen: string;
     }
 }
+
+export type PolkadotPalletAssetsAssetDetails = {
+    deposit: number;
+    name: string;
+    symbol: string;
+    decimals: number;
+    isFrozen: boolean;
+}
+
+export type PolkadotPalletAssetsAssetDetailsHuman = {
+    deposit: string;
+    name: string;
+    symbol: string;
+    decimals: string;
+    isFrozen: boolean;
+}

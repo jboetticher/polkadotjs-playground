@@ -20,6 +20,8 @@
     "dependencies": {
         "@polkadot/api": "^8.8.1",
         "@polkadot/keyring": "^9.4.1",
+        "@polkadot/typegen": "^8.10.1",
+        "@polkadot/types": "^8.10.1",
         "@polkadot/util": "^9.4.1",
         "@polkadot/util-crypto": "^9.4.1",
         "ts-node": "^10.4.0",

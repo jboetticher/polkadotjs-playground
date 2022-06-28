@@ -18,8 +18,8 @@ const main = async () => {
     const { provider, api } = await selectNetwork(args.network);
 
     // Check for xTokens pallet
-    if (api.tx.xTokens === undefined) {
-        console.error('xTokens pallet not included');
+    if (api.tx.balance === undefined) {
+        console.error('balance pallet not included');
         process.exit();
     }
 

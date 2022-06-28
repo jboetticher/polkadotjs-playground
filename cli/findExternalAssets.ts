@@ -1,7 +1,7 @@
 // Import
 import yargs from 'yargs';
-import selectNetwork from "./utils/selectNetwork";
-import { PolkadotPalletAssetsAssetDetailsHuman } from "./utils/polkatypes";
+import selectNetwork from "../utils/selectNetwork";
+import { PolkadotPalletAssetsAssetDetailsHuman } from "../utils/polkatypes";
 
 const args = yargs.options({
     network: { type: 'string', demandOption: true, alias: 'n' },

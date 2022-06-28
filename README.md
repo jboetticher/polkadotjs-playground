@@ -4,7 +4,7 @@ This is where I make functions and play around with the polkadot-js SDK. Hopeful
 
 ### findExternalAssets
 ```
-ts-node findExternalAssets.ts -network NETWORK -includeName boolean
+ts-node cli/findExternalAssets.ts -network NETWORK -includeName boolean
 ```
-- -network (-n):        The network to use (moonbeam, moonriver, moonbase).
-- -includeName (-N):    Optional. Include if you want each asset's name to appear.
+- --network (-n):        The network to use (moonbeam, moonriver, moonbase).
+- --includeName (-N):    Optional. Include if you want each asset's name to appear.
